@@ -17,7 +17,7 @@ f = open("stream.pid", "r")
 subprocess.call(['kill', f.read()])
 
 subprocess.call(['yt-dlp', '-f', 'bv*+ba', '--merge-output-format', 'mp4', args.video, '-o', 'video.mp4'])
-p = subprocess.Popen(['nanodlna', 'play', "video.mp4", '-d', 'http://192.168.1.122:1598/'])
+p = subprocess.Popen(['nanodlna', 'play', "video.mp4", '-d', args.dongle])
 f = open("stream.pid", "w")
 f.write("{}".format(p.pid))
 f.close()
